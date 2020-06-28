@@ -6,7 +6,7 @@
   - Amal Almomani
 
 ## Links and Resources
-   - [PR]()
+   - [PR](https://github.com/amal-401-advanced-javascript/resty/pull/1)
 
 ## Setup
   - npx create-react-app resty
