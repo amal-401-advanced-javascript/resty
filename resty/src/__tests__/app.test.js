@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from '../src/App.js';
+import App from '../App.js';
 
 describe('<App/>', () => {
     it('Renders correctly', () => {

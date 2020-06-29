@@ -1,5 +1,4 @@
 import React from 'react';
-import './components/design/design.scss';
 import Header from './components/header/header.js';
 import Form from './components/form/form.js';
 import Footer from './components/footer/footer.js';
@@ -7,9 +6,9 @@ import Footer from './components/footer/footer.js';
 function App() {
   return (
     <React.Fragment>
-    <Header/>
-    < Form/>
-    <Footer/>
+    <Header />
+    <Form />
+    <Footer />
     </React.Fragment>
   );
 }
