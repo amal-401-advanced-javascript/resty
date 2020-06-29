@@ -2,7 +2,7 @@ import React from "react";
 import './form.scss';
 
 
-class Main extends React.Component {
+class Form extends React.Component {
     constructor(props) {
       super(props);
       this.state = { 
@@ -19,7 +19,7 @@ class Main extends React.Component {
     };
 
     handleClickGo = (e) => {
-        this.setState({result: `${this.state.method} ${'  '} ${this.state.url}`})
+        this.setState({result: `${this.state.method}   ${this.state.url}`})
     };
 
     handleClickGet = (e) => {
@@ -41,12 +41,12 @@ class Main extends React.Component {
             <div className='methodDiv'>
                 <label className="url">URL:</label>
                 <input type="text" className='url' onChange={this.handleChange} />
-                <button className='go' onClick={this.handleClickGo}>Go!</button>
+                <button className='go' onClick={this.handleClickGo} id='go'>Go!</button>
                 <br></br>
-                <button className='method' onClick={this.handleClickGet}>GET</button>
-                <button className='method' onClick={this.handleClickPost}>POST</button>
-                <button className='method' onClick={this.handleClickPut}>PUT</button>
-                <button className='method' onClick={this.handleClickDelete}>DELETE</button>
+                <button className='method' onClick={this.handleClickGet} id='get'>GET</button>
+                <button className='method' onClick={this.handleClickPost} id='post'>POST</button>
+                <button className='method' onClick={this.handleClickPut} id='put'>PUT</button>
+                <button className='method' onClick={this.handleClickDelete} id='delete'>DELETE</button>
             </div>
        
         <div className='output'>{this.state.result} </div>
@@ -55,6 +55,4 @@ class Main extends React.Component {
   }
 }
 
-
-  
-  export default Main;
+export default Form;
