@@ -2,7 +2,7 @@
   "name": "resty",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sharp-goldstine-be4efa.netlify.app",
+  "homepage": "/",
   "main": "src/index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
