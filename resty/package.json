@@ -2,7 +2,7 @@
   "name": "resty",
   "version": "0.1.0",
   "private": true,
-  "homepage": " https://amal-401-advanced-javascript.github.io/resty/",
+  "homepage": "https://competent-goldstine-3265a5.netlify.app",
   "main": "src/index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
