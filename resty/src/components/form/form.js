@@ -1,55 +1,56 @@
-import React from "react";
+import React from 'react';
 import './form.scss';
 
-
 class Form extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = { 
-          url: '',
-          method:'',
-          result:'',
-     };
+  constructor(props) {
+    super(props);
+    this.state = {
+      method: '',
+      url: '',
+      request: {}
+    };
+  }
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    if (this.state.url && this.state.method) {
+        try {
+          const raw = await fetch(`${this.state.url}`);
+          const data = await raw.json();
+          let results = {
+            Headers : raw.headers,
+            Response : data
+          }
+          this.props.handler(results);
+        } catch (e) {
+          console.log(e);
+        }
     }
+  };
 
-    handleChange = (e) =>{
-        const url = e.target.value;
-        this.setState({ url: url });
+  handleChange = (e) => {
+    const url = e.target.value;
+    this.setState({ url })
+  };
+  handleChangeMethod = (e) => {
+    const method = e.target.value;
+    this.setState({ method })
+  };
 
-    };
-
-    handleClickGo = (e) => {
-        this.setState({result: `${this.state.method}   ${this.state.url}`})
-    };
-
-    handleClickGet = (e) => {
-        this.setState({ method: 'GET' });
-    };
-    handleClickPost = (e) => {
-        this.setState({ method: 'POST' });
-    };
-    handleClickPut = (e) => {
-        this.setState({ method: 'PUT' });
-    };
-    handleClickDelete = (e) => {
-        this.setState({method: 'DELETE' });
-    };
-    
   render() {
     return (
-        <main>
-            <div className='methodDiv'>
-                <label className="url">URL:</label>
-                <input type="text" className='url' onChange={this.handleChange} />
-                <button className='go' onClick={this.handleClickGo} id='go'>Go!</button>
+      < main>
+        <form onSubmit={this.handleSubmit}>
+        <div className='methodDiv'>
+        <label className="url">URL:</label>
+            <input type="text" className='url' onChange={this.handleChange} />
+              <button className='go' id='go'>Go!</button>
                 <br></br>
-                <button className='method' onClick={this.handleClickGet} id='get'>GET</button>
-                <button className='method' onClick={this.handleClickPost} id='post'>POST</button>
-                <button className='method' onClick={this.handleClickPut} id='put'>PUT</button>
-                <button className='method' onClick={this.handleClickDelete} id='delete'>DELETE</button>
-            </div>
-       
-        <div className='output'>{this.state.result} </div>
+                 <button className='method' onClick={this.handleChangeMethod} id='get' value="GET" >GET</button>
+                <button className='method' onClick={this.handleChangeMethod} id='post' value="POST" >POST</button>
+                 <button className='method' onClick={this.handleChangeMethod} id='put' value="PUT">PUT</button>
+               <button className='method' onClick={this.handleChangeMethod} id='delete' value="DELETE">DELETE</button>
+           </div>
+        </form>
       </main>
     );
   }
